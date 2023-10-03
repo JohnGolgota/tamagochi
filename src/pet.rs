@@ -24,7 +24,7 @@ impl Pet {
     pub fn check_status(&mut self) {
         // donde deberia estar el tick en esto o en el loop arriba?
         let health = self.stats.health; // no
-        if health == 0 {
+        if health == 0 || self.stats.is_dead() {
             // self.status = String::from("death"); // no necesita returns
             self.status = PetStatus::Death;
         } else if health > 0 && health < 50 {
@@ -37,11 +37,21 @@ impl Pet {
     }
     pub fn live(&mut self) {
         // da hunger sip esa es la idea
-		self.check_status();
+        self.check_status();
         self.stats.tick(); // tenes copilot o que es lo que auto completa?
     }
     pub fn feed(&mut self) {
         self.stats.feed();
+    }
+    pub fn play(&mut self) {
+        self.stats.play();
+    }
+    pub fn sleep(&mut self) {
+        self.stats.sleep();
+    }
+    pub fn wash(&mut self) {
+        self.stats.wash();
+		println!("{} se ha lavado", self.name)
     }
 }
 
@@ -64,20 +74,28 @@ impl Stats {
         }
     }
     fn feed(&mut self) {
-        self.hunger -= 5;
+        if self.hunger > 0 {
+            self.hunger -= 1;
+        }
     }
     fn play(&mut self) {
-        self.boredom -= 1;
+        if self.boredom > 0 {
+            self.boredom -= 1;
+        }
     }
     fn sleep(&mut self) {
-        self.tiredness -= 1;
+        if self.tiredness > 0 {
+            self.tiredness -= 1;
+        }
     }
     fn wash(&mut self) {
-        self.dirtiness -= 1;
+        if self.dirtiness > 0 {
+            self.dirtiness -= 1;
+        }
     }
     fn tick(&mut self) {
         if self.health > 0 {
-            self.health -= 1;
+            // self.health -= 1;
             let num = randnum();
             if num % 2u8 == 0u8 {
                 self.hunger += 1u8;
@@ -92,7 +110,7 @@ impl Stats {
             // self.hunger += 1;
         }
     }
-    fn is_alive(&self) -> bool {
+    fn _is_alive(&self) -> bool {
         self.hunger < 100 && self.boredom < 100 && self.tiredness < 100 && self.dirtiness < 100
     }
     // fn is_happy(&mut self) -> bool {
@@ -100,16 +118,16 @@ impl Stats {
     //         self.hunger < 50 && self.boredom < 50 && self.tiredness < 50 && self.dirtiness < 50;
     //     self.happy
     // }
-    fn is_hungry(&self) -> bool {
+    fn _is_hungry(&self) -> bool {
         self.hunger > 50
     }
-    fn is_bored(&self) -> bool {
+    fn _is_bored(&self) -> bool {
         self.boredom > 50
     }
-    fn is_tired(&self) -> bool {
+    fn _is_tired(&self) -> bool {
         self.tiredness > 50
     }
-    fn is_dirty(&self) -> bool {
+    fn _is_dirty(&self) -> bool {
         self.dirtiness > 50
     }
     fn is_dead(&self) -> bool {
