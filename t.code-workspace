@@ -5,7 +5,7 @@
 		}
 	],
 	"settings":{
-        "workbench.iconTheme": "vs-seti",
-		"workbench.colorTheme": "Default Dark Modern",
+        "workbench.iconTheme": "easy-icons",
+		"workbench.colorTheme": "SynthWave '84",
     }
 }
