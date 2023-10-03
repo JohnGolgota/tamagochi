@@ -74,8 +74,8 @@ fn main() {
         clear_terminal();
         let number: u8 = rng.gen_range(0..=10);
         println!(
-            "Salud: {}, Hambre: {}, Higiene: {}",
-            mascota.stats.health, mascota.stats.hunger, mascota.stats.dirtiness
+            "Salud: {}, Hambre: {}, Higiene: {}, Aburrimiento: {}, Cansancio: {}, Suciedad: {}",
+            mascota.stats.health, mascota.stats.hunger, mascota.stats.dirtiness, mascota.stats.boredom, mascota.stats.tiredness, mascota.stats.dirtiness
         );
         if mascota.status == PetStatus::Death {
             print!("{}\nRIP {} :(", kato_muerto, mascota.name);
@@ -90,7 +90,7 @@ fn main() {
             "3" => mascota.sleep(),
             "4" => mascota.wash(),
             "5" => break,
-            _ =>  println!("\n{} ..", msg),
+            _ =>  println!("{}", msg),
         }
         if number % 2u8 == 0 {
             msg = "..";

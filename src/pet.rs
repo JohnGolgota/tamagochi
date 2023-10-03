@@ -74,28 +74,30 @@ impl Stats {
         }
     }
     fn feed(&mut self) {
-        if self.hunger > 0 {
-            self.hunger -= 1;
+        if self.hunger > 5u8 {
+            self.hunger -= 5u8;
         }
     }
     fn play(&mut self) {
-        if self.boredom > 0 {
-            self.boredom -= 1;
+        if self.boredom > 5u8 {
+            self.boredom -= 5u8;
         }
     }
     fn sleep(&mut self) {
-        if self.tiredness > 0 {
-            self.tiredness -= 1;
+        if self.tiredness > 5u8 {
+            self.tiredness -= 5u8;
         }
     }
     fn wash(&mut self) {
-        if self.dirtiness > 0 {
-            self.dirtiness -= 1;
+        if self.dirtiness > 5u8 {
+            self.dirtiness -= 5u8;
         }
     }
     fn tick(&mut self) {
         if self.health > 0 {
-            // self.health -= 1;
+            if self.is_bored() || self.is_tired() || self.is_dirty() || self.is_hungry() {
+                self.health -= 1;
+            }
             let num = randnum();
             if num % 2u8 == 0u8 {
                 self.hunger += 1u8;
@@ -107,7 +109,6 @@ impl Stats {
                 self.boredom += 1u8;
             }
             self.dirtiness += 1u8;
-            // self.hunger += 1;
         }
     }
     fn _is_alive(&self) -> bool {
@@ -118,16 +119,16 @@ impl Stats {
     //         self.hunger < 50 && self.boredom < 50 && self.tiredness < 50 && self.dirtiness < 50;
     //     self.happy
     // }
-    fn _is_hungry(&self) -> bool {
+    fn is_hungry(&self) -> bool {
         self.hunger > 50
     }
-    fn _is_bored(&self) -> bool {
+    fn is_bored(&self) -> bool {
         self.boredom > 50
     }
-    fn _is_tired(&self) -> bool {
+    fn is_tired(&self) -> bool {
         self.tiredness > 50
     }
-    fn _is_dirty(&self) -> bool {
+    fn is_dirty(&self) -> bool {
         self.dirtiness > 50
     }
     fn is_dead(&self) -> bool {
