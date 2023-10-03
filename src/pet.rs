@@ -22,23 +22,18 @@ impl Pet {
         }
     }
     pub fn check_status(&mut self) {
-        // donde deberia estar el tick en esto o en el loop arriba?
-        let health = self.stats.health; // no
+        let health = self.stats.health;
         if health == 0 || self.stats.is_dead() {
-            // self.status = String::from("death"); // no necesita returns
             self.status = PetStatus::Death;
         } else if health > 0 && health < 50 {
-            // self.status = String::from("sick"); // no necesita returns
             self.status = PetStatus::Sick;
         } else {
-            // self.status = String::from("Alive"); // *carita sonrojada*
             self.status = PetStatus::Alive;
         }
     }
     pub fn live(&mut self) {
-        // da hunger sip esa es la idea
         self.check_status();
-        self.stats.tick(); // tenes copilot o que es lo que auto completa?
+        self.stats.tick();
     }
     pub fn feed(&mut self) {
         self.stats.feed();
@@ -74,22 +69,22 @@ impl Stats {
         }
     }
     fn feed(&mut self) {
-        if self.hunger > 5u8 {
+        if self.hunger >= 5u8 {
             self.hunger -= 5u8;
         }
     }
     fn play(&mut self) {
-        if self.boredom > 5u8 {
+        if self.boredom >= 5u8 {
             self.boredom -= 5u8;
         }
     }
     fn sleep(&mut self) {
-        if self.tiredness > 5u8 {
+        if self.tiredness >= 5u8 {
             self.tiredness -= 5u8;
         }
     }
     fn wash(&mut self) {
-        if self.dirtiness > 5u8 {
+        if self.dirtiness >= 5u8 {
             self.dirtiness -= 5u8;
         }
     }
@@ -139,4 +134,60 @@ impl Stats {
 fn randnum() -> u8 {
     let rand_number: u8 = rand::thread_rng().gen_range(1..=10);
     rand_number
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test_num() {
+        let num = randnum();
+        assert!(num > 0 && num <= 10);
+    }
+    #[test]
+    fn test_stats() {
+        let mut stats = Stats::new();
+        stats.tick();
+        assert_eq!(stats.health, 10);
+        assert!(stats.hunger == 0 || stats.hunger == 1);
+        assert!(stats.boredom == 0 || stats.boredom == 1);
+        assert!(stats.tiredness == 0 || stats.tiredness == 1);
+        assert!(stats.dirtiness == 0 || stats.dirtiness == 1);
+        let mut stats = Stats::new();
+        loop {
+            stats.tick();
+            if stats.hunger == 5 {
+                break;
+            }
+        }
+        stats.feed();
+        assert_eq!(stats.hunger, 0);
+        let mut stats = Stats::new();
+        loop {
+            stats.tick();
+            if stats.boredom == 5 {
+                break;
+            }
+        }
+        stats.play();
+        assert_eq!(stats.boredom, 0);
+        let mut stats = Stats::new();
+        loop {
+            stats.tick();
+            if stats.tiredness == 5 {
+                break;
+            }
+        }
+        stats.sleep();
+        assert_eq!(stats.tiredness, 0);
+        let mut stats = Stats::new();
+        loop {
+            stats.tick();
+            if stats.dirtiness == 5 {
+                break;
+            }
+        }
+        stats.wash();
+        assert_eq!(stats.dirtiness, 0);
+    }
 }
