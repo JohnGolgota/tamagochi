@@ -1,6 +1,6 @@
 <div align="center">
     <h2>Kigoutchi</h2>
-    <img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/af16d452-b48c-4b89-bc19-2090cc00f69b)" width="350px" height="150px">
+    <img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/af16d452-b48c-4b89-bc19-2090cc00f69b" alt="repository's banner" width="350px" height="150px">
 </div>
 
 <div align="center">
@@ -34,7 +34,7 @@ Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a v
 Kigoutchi has many pet options for you to choose, including:
 <table>
     <tr>
-        <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6) the goofiest cat around</td>">
+        <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
             - pedrito
             <br>
