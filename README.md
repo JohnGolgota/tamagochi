@@ -15,7 +15,7 @@
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JohnGolgota/tamagochi" />
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi">
-      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/workflows/Pipelines/badge.svg?branchName=main">
+      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/workflows/Build/badge.svg?branchName=main">
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi/actions">
       <img alt="Tests Passing" src="https://github.com/JohnGolgota/tamagochi/workflows/Test/badge.svg?" />
