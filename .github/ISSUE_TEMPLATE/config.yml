@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Support
+    url: https://github.com/JohnGolgota/tamagochi
+    about: Please ask and answer questions here.
+  - name: Security Bug Bounty
+    url: https://github.com/JohnGolgota/tamagochi
+    about: Please report security vulnerabilities here.
