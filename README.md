@@ -28,6 +28,14 @@
     </a>
 </p>
 
+<p align="center">
+  <a href="/docs/readme_fr.md">Français</a>
+  ·
+  <a href="/docs/readme_cn.md">简体中文</a>
+  ·
+  <a href="/docs/readme_es.md">Español</a>
+</p>
+
 Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features.
 
 ## Kigoutchi variants
@@ -36,7 +44,7 @@ Kigoutchi has many pet options for you to choose, including:
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
-            - pedrito
+            - Pedrito
             <br>
             the goofiest cat around
         </td>  
@@ -44,7 +52,7 @@ Kigoutchi has many pet options for you to choose, including:
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
         <td>
-            - pedrito's deformed cousin
+            - Pedrito's deformed cousin
             <br>
             was born close to a nuclear plant was abbandoned so he has no name and everyone knows him as pedrito's cousin
         </td>  
