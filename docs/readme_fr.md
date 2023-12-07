@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <h2>Your virtual pet developed in Rust</h2>
+    <h2>Votre animal de compagnie virtuel s'est développé à Rust</h2>
 </div>
 
 <p align="center">
@@ -36,33 +36,33 @@
   <a href="/docs/readme_es.md">Español</a>
 </p>
 
-Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features.
+Kigoutchi, Abréviation pour 記号 Kigou 友達 Tomodachi ("Symbole d'ami") est un animal de compagnie virtuel, avec de nombreuses fonctions de personnalisation et d'interaction.
 
-## Kigoutchi variants
-Kigoutchi has many pet options for you to choose, including:
+## Variants de Kigoutchi
+Kigoutchi a de nombreuses options d'animaux de compagnie à choisir, qui incluent:
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
             - Pedrito
             <br>
-            the goofiest cat around
+            Le chat le plus idiot qui soit
         </td>  
     </tr>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
         <td>
-            - Pedrito's deformed cousin
+            - Le cousin déformé de Pedrito
             <br>
-            was born close to a nuclear plant was abbandoned so he has no name and everyone knows him as pedrito's cousin
+            Il est né près d'une centrale nucléaire, a été abandonné, donc il n'a pas de nom et tout le monde le connaît en tant que cousin de Pedrito
         </td>  
     </tr>
 </table>
 
-## Here's all the things you can do with your Kigoutchi
-- :poultry_leg:    Feed it a wide variety of foods
-- :raised_hand:    Pet it with your.. virtual hand..
-- :soap:    Clean it so that it's not all nasty and stinky yknow
-- :skull:    Kill it in various ways
+## Ce sont toutes les choses que vous pouvez faire avec votre kigoutchi
+- :poultry_leg:    Nourrir avec une grande variété de repas
+- :raised_hand:    Caressez-le avec votre .. main virtuelle ..
+- :soap:   Boigner pour que tout ne soit pas désagréable et puant, tu sais
+- :skull:    Matar de plusieurs manières
 
 
