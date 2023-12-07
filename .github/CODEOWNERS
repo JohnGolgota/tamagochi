@@ -1,0 +1,9 @@
+#Global owner
+* @JohnGolgota
+#Rust owners
+*.rs @JohnGolgota
+*.rs @Kolozuz
+#docs owners
+docs/* @Kolozuz
+# source main reviewer
+src/*
