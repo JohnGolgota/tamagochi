@@ -8,15 +8,24 @@
 </div>
 
 <p align="center">
-  <a href="https://github.com/excalidraw/excalidraw/blob/master/LICENSE">
-    <img alt="Kigoutchi is released under the MIT license." src="https://img.shields.io/badge/license-MIT-blue.svg"  />
-  </a>
-  <a href="https://docs.excalidraw.com/docs/introduction/contributing">
-    <img alt="PRs welcome!" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"  />
-  </a>
-  <a href="https://github.com/JohnGolgota/tamagochi">
-    <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/actions/workflows/pipeline.yml/badge.svg?branchName=main">
-  </a>
+    <a href="https://github.com/excalidraw/excalidraw/blob/master/LICENSE">
+      <img alt="Kigoutchi is released under the MIT license." src="https://img.shields.io/badge/license-MIT-blue.svg"  />
+    </a>
+    <a href="https://github.com/JohnGolgota/tamagochi/graphs/contributors">
+      <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JohnGolgota/tamagochi" />
+    </a>
+    <a href="https://github.com/JohnGolgota/tamagochi">
+      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/workflows/pipeline.yml/badge.svg?branchName=main">
+    </a>
+    <a href="https://github.com/JohnGolgota/tamagochi/actions">
+      <img alt="Tests Passing" src="https://github.com/JohnGolgota/tamagochi/workflows/Test/badge.svg" />
+    </a>
+    <a href="https://github.com/JohnGolgota/tamagochi/issues">
+      <img alt="Issues" src="https://img.shields.io/github/issues/JohnGolgota/tamagochi?color=0088ff" />
+    </a>
+    <a href="https://github.com/JohnGolgota/tamagochi/pulls">
+      <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/JohnGolgota/tamagochi?color=0088ff" />
+    </a>
 </p>
 
 Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features.
