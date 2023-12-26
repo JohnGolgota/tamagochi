@@ -36,7 +36,7 @@
   <a href="/docs/readme_es.md">Español</a>
 </p>
 
-Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features.
+Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features. バカ
 
 ## Kigoutchi variants
 Kigoutchi has many pet options for you to choose, including:
