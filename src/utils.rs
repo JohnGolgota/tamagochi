@@ -1,25 +1,63 @@
-use std::{fmt::{Debug, self}, path::Iter};
+use std::fmt::{Debug, self};
+use crate::pet::CatSize;
 
+#[derive(Clone)]
 pub struct Grid{
     cols:usize,
     rows:usize,
-    pub vect:Vec<Vec<String>>
+    pub vect:Vec<Vec<char>>
 }
 
 impl Grid {
+    /// Creates a new grid (2-dimensional vector) with the given dimentions (cols and rows)
+    /// where every character is a blank space ('x00')
+    /// 
+    /// ### Usage
+    ///
+    /// ```rust
+    /// let myGrid = Grid::new(12,5);
+    /// assert_eq!(myGrid, vec![[char::default()12]; 5];);
+    /// ```
     pub fn new(cols:usize, rows:usize) -> Grid{
         Grid{
             cols,
             rows,
             vect: vec![
-                vec![
-                    ".".to_string(); cols // Vector that contains n amount of String characters, n is determined by the cols parameter
-                ]; rows // Vector that contains n amount of Vec<String>, n is determined by the rows parameter
-            ]
+                vec![char::default(); cols ]; rows   // Vector that contains n amount of single characters (char), n is determined by the cols parameter
+            ]   // Vector that contains n amount of Vec<char>, n is determined by the rows parameter
         }
     }
 
-    /// Returns grid's (aka two dimentional array) dimentions as a tuple, 
+    /// Creates a new grid with the given dimentions (cols and rows)
+    /// where every character is the given `character` param
+    /// 
+    /// ### Usage
+    ///
+    /// ```rust
+    /// let myGrid = Grid::new_from('💖',12,5);
+    /// assert_eq!(myGrid, vec![vec![character; 12 ]; 6);
+    /// ```
+    /// printed output would look like this:
+    /// ```
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// 💖💖💖💖💖💖💖💖💖💖💖💖
+    /// ```
+    /// 
+    pub fn new_from(character:char, cols:usize, rows:usize) -> Grid{
+        Grid{
+            cols,
+            rows,
+            vect: vec![
+                vec![character; cols ]; rows   // Vector that contains n amount of single characters (char), n is determined by the cols parameter
+            ]   // Vector that contains n amount of Vec<char>, n is determined by the rows parameter
+        }
+    }
+
+    /// Returns grid dimentions as a tuple, 
     /// where the 1st element is the number of "columns" 
     /// and the 2nd element is the number of "rows"
     /// 
@@ -32,8 +70,7 @@ impl Grid {
     /// ```
     /// # Note
     ///
-    /// If for some reason you decide to use this instead of retrieving the structs attributes directly
-    /// here's a little comparison between the two methods
+    /// Here's a little comparison between retrieving the struct attributes directly and using this method
     /// 
     /// ```rust
     /// let myGrid = Grid::new(12,5);
@@ -55,61 +92,60 @@ impl Grid {
     pub fn dimentions(&self) -> (usize, usize){
         (self.cols, self.rows)
     }
-    // pub fn render(&mut self) -> Grid{
-    //     let grid:Vec<Vec<String>> = vec![
-    //             vec![
-    //                 String::new(); self.width // Vector that contains n amount of String characters, n is determined by the width parameter
-    //             ]; self.height // Vector that contains n amount of Vec<String>, n is determined by the height parameter
-    //         ];
-    //     return grid
-    // }
 }
 
 
-// impl Grid {
-//     pub fn new(width:usize, height:usize) -> Vec<Vec<&'static str>>{
-//         Grid{
-//             width,
-//             height
-//         };
-//         let grid:Vec<Vec<&str>> = vec![vec!["."; width]; height];
-//         return grid
-//     }
-// }
+#[derive(Clone)]
+pub struct CatGrid{
+    cols:usize,
+    rows:usize,
+    pub vect:Vec<Vec<char>>
+}
 
+impl CatGrid {
+    pub fn new(cat_size:CatSize) -> Grid{
+        match cat_size {
+            CatSize::Small{width, height} => Grid{
+                    cols:width,
+                    rows:height,
+                    vect: vec![
+                        vec![' ','/','\\','_','/','\\','.','.','.','.','.','.'],
+                        vec!['/',' ','o',' ','o',' ','\\','.','.','.','.','.'],
+                        vec!['\\','¨',' ','^',' ','¨','/','.','.','.','.','.'],
+                        vec![' ','/',' ',' ',' ','\\',' ',' ',' ','\\','.','.'],
+                        vec!['(','|','_','|','_','|',')','_','_','/','.','.'],
+                        vec!['.','.','.','.','.','.','.','.','.','.','.','.']
+    
+                    ]
+                },
+            CatSize::Medium{width, height} => Grid{
+                cols:width,
+                rows:height,
+                vect: vec![
+                    vec![' ','/', '\\','_','/','\\','.','.','.','.','.','.'],
+                    vec!['/',' ','o',' ','o',' ','\\','.','.','.','.','.'],
+                    vec!['\\','¨',' ','^',' ','¨','/','.','.','.','.','.'],
+                    vec![' ','/',' ',' ',' ','\\',' ',' ',' ','\\','.','.'],
+                    vec!['(','|','_','|','_','|',')','_','_','/','.','.'],
+                    vec!['.','.','.','.','.','.','.','.','.','.','.','.']
 
-
-// pub trait Thingy {
-//     type Grid;
-//     const grid:Grid = vec![vec!["."; width]; height];
-
-//     fn new(width:usize, height:usize) -> Grid{
-//         Grid{
-//             width,
-//             height
-//         }
-//     }
-// }
-
-// impl Thingy for Grid{
-//     type Grid = Vec<Vec<String>>;
-
-//     fn new(width:usize, height:usize) -> Grid{
-//         Grid{
-//             width,
-//             height
-//         };
-//         return grid;
-//     }
-// }
-
-// impl Iterator for Grid{
-//     type Item = Vec<String>;
-
-//     fn next(&mut self) -> Option<Self::Item> {
-//         todo!()
-//     }
-// }
+                ]
+            },
+            CatSize::Big{width, height} => Grid{
+                cols:width,
+                rows:height,
+                vect: vec![
+                    vec![' ','/', '\\','_','/','\\','.','.','.','.','.','.'],
+                    vec!['/',' ','o',' ','o',' ','\\','.','.','.','.','.'],
+                    vec!['\\','¨',' ','^',' ','¨','/','.','.','.','.','.'],
+                    vec![' ','/',' ',' ',' ','\\',' ',' ',' ','\\','.','.'],
+                    vec!['(','|','_','|','_','|',')','_','_','/','.','.'],
+                    vec!['.','.','.','.','.','.','.','.','.','.','.','.']
+                ]
+            },
+        }
+    }
+}
 
 impl Debug for Grid{
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -120,13 +156,5 @@ impl Debug for Grid{
             writeln!(f)?;
         }
         Ok(())
-    }
-}
-
-impl Iterator for Grid {
-    type Item = Vec<String>;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        todo!()
     }
 }
