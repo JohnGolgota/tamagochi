@@ -4,16 +4,21 @@ mod utils;
 use utils::Grid;
 use pet::Pet;
 use rand::Rng;
-use std::{array, vec};
 use std::io::{self, Write};
+use std::usize;
 use std::{sync::mpsc, thread, time};
 
 use crate::menu::Menu;
 use crate::pet::PetStatus;
+use crate::utils::CatGrid;
 
 fn main() {
     let mut rng = rand::thread_rng();
     let mut mascota = Pet::new(String::from("perro"));
+
+    let newgrid: Grid = CatGrid::new(mascota.size); //(12,6);
+    let my_grid = newgrid.clone().vect;
+
     let menu: Menu = Menu::new();
     let frames = [
         r#"
@@ -59,71 +64,71 @@ fn main() {
  /   \    _
 /|_|_|\__/
 	"#;
-    
-    // type Grid = Vec<Vec<String>>;
-    let newgrid: Grid = Grid::new(12,6);
-    let my_grid = newgrid.vect;
 
-    render_frames(my_grid);
-    // print!("{:?}", my_grid);
-    // const MILLIS: u64 = 600;
-    // let mut msg: &str = "meaw";
-    // let (tx, rx) = mpsc::channel();
-    // let input_handle = thread::spawn(move || {
-    //     loop {
-    //         let mut input = String::new();
-    //         io::stdout().flush().unwrap();
-    //         io::stdin().read_line(&mut input).unwrap();
-    //         tx.send(input.trim().to_string()).unwrap();
-    //         if input.trim() == "exit" {
-    //             break;
-    //         }
-    //     }
-    // });
-    // for frame in frames.iter().cycle() {
-    //     clear_terminal();
-    //     let number: u8 = rng.gen_range(0..=10);
-    //     println!(
-    //         "Salud: {}, Hambre: {}, Higiene: {}, Aburrimiento: {}, Cansancio: {}, Suciedad: {}",
-    //         mascota.stats.health, mascota.stats.hunger, mascota.stats.dirtiness, mascota.stats.boredom, mascota.stats.tiredness, mascota.stats.dirtiness
-    //     );
-    //     if mascota.status == PetStatus::Death {
-    //         print!("{}\nRIP {} :(", kato_muerto, mascota.name);
-    //         break;
-    //     }
-    //     print!("{}", menu.options);
-    //     print!("{}", frame);
-    //     let select = rx.recv().unwrap();
-    //     match select.as_str() {
-    //         "1" => mascota.feed(),
-    //         "2" => mascota.play(),
-    //         "3" => mascota.sleep(),
-    //         "4" => mascota.wash(),
-    //         "5" => break,
-    //         _ =>  println!("{}", msg),
-    //     }
-    //     if number % 2u8 == 0 {
-    //         msg = "..";
-    //     } else {
-    //         msg = "meaw";
-    //     }
-    //     thread::sleep(time::Duration::from_millis(MILLIS));
-    //     mascota.live();
-    // }
-	// input_handle.join().unwrap();
+    // let frames = render_frames(my_grid.clone());
+    print!(r"{:?}", newgrid);
+    print!("dimentions: {:?}", newgrid.dimentions());
+
+
+//     const MILLIS: u64 = 600;
+//     let mut msg: &str = "meaw";
+//     let (tx, rx) = mpsc::channel();
+//     let input_handle = thread::spawn(move || {
+//         loop {
+//             let mut input = String::new();
+//             io::stdout().flush().unwrap();
+//             io::stdin().read_line(&mut input).unwrap();
+//             tx.send(input.trim().to_string()).unwrap();
+//             if input.trim() == "exit" {
+//                 break;
+//             }
+//         }
+//     });
+//     for frame in frames.iter().cycle() {
+//         clear_terminal();
+//         let number: u8 = rng.gen_range(0..=10);
+//         println!(
+//             "Salud: {}, Hambre: {}, Higiene: {}, Aburrimiento: {}, Cansancio: {}, Suciedad: {}",
+//             mascota.stats.health, mascota.stats.hunger, mascota.stats.dirtiness, mascota.stats.boredom, mascota.stats.tiredness, mascota.stats.dirtiness
+//         );
+//         if mascota.status == PetStatus::Death {
+//             print!("{}\nRIP {} :(", kato_muerto, mascota.name);
+//             break;
+//         }
+//         print!("{}", menu.options);
+//         print!("{}", frame);
+//         let select = rx.recv().unwrap();
+//         match select.as_str() {
+//             "1" => mascota.feed(),
+//             "2" => mascota.play(),
+//             "3" => mascota.sleep(),
+//             "4" => mascota.wash(),
+//             "5" => break,
+//             _ =>  println!("{}", msg),
+//         }
+//         if number % 2u8 == 0 {
+//             msg = "..";
+//         } else {
+//             msg = "meaw";
+//         }
+//         thread::sleep(time::Duration::from_millis(MILLIS));
+//         mascota.live();
+//     }
+// 	input_handle.join().unwrap();
 }
 
 fn clear_terminal() {
     print!("\x1B[2J\x1B[1;1H");
 }
 
-fn render_frames(grid:Vec<Vec<String>>){
-    for row in grid {
-        let mut rowstr: String = String::new();
+fn render_frames(grid:Vec<Vec<char>>){
+    for row in grid { 
+        let mut rowstr: String = String::default();
         for char  in row {
-            rowstr.push_str(&char);
+            rowstr.push(char);
 
         }
         println!("{}", rowstr);
     }
 }
+
