@@ -6,11 +6,43 @@ pub enum PetStatus {
     Death,
 }
 
+#[derive(Debug, PartialEq, Eq)]
+pub enum CatSize {
+    Small {
+        width:usize, 
+        height:usize
+    },
+    Medium {
+        width:usize, 
+        height:usize
+    },
+    Big {
+        width:usize,
+        height:usize
+    }
+}
+
+impl CatSize{
+    pub fn new() -> CatSize{
+        CatSize::Medium {
+            width: 12, 
+            height: 6 
+        }
+        
+    }
+}
+
+impl Default for CatSize {
+    fn default() -> Self {
+        CatSize::new()
+    }
+}
+
 pub struct Pet {
     pub name: String,
     pub status: PetStatus,
     pub stats: Stats,
-    // pub happy: u8
+    pub size: CatSize
 }
 
 impl Pet {
@@ -19,6 +51,7 @@ impl Pet {
             name,
             status: PetStatus::Alive,
             stats: Stats::new(),
+            size: CatSize::default()
         }
     }
     pub fn check_status(&mut self) {
