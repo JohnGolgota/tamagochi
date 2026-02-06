@@ -116,16 +116,3 @@ fn main() {
 fn clear_terminal() {
     print!("\x1B[2J\x1B[1;1H");
 }
-
-fn render_frames(grid: &Vec<Vec<char>>) -> String {
-    let mut frame = String::new();
-    for row in grid {
-        let mut rowstr: String = String::default();
-        for char in row {
-            rowstr.push(*char);
-        }
-        frame.push_str(&(rowstr.clone() + "\n"));
-        //print!("\n{}", rowstr);
-    }
-    return frame.clone();
-}
