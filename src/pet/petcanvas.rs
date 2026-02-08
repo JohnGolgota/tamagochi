@@ -19,7 +19,7 @@ pub trait CustomDisplay {
 
 // TODO: Maybe rename this to PetCanvas? since this will handle both the "drawing" and "animation"
 // of the pets "canvas" seems more fitting
-pub struct PetGrid {
+pub struct PetCanvas {
     /// Creates a new "pet grid"—a 2-dimensional vector with characters at specific positions
     /// according to the provided parameters, that make it so that the printed vector
     /// resembles a pet (hopefully).
@@ -40,7 +40,7 @@ pub struct PetGrid {
     pub death_frame: Vec<Vec<char>>,
 }
 
-impl PetGrid {
+impl PetCanvas {
     // TODO: For pet templates, meaning, the outline / sillouete of pets, ideally we want to be
     // able to define them in json files or something similar and then have a way to import the and
     // then pass that as the base for the PetGrid.
@@ -50,7 +50,7 @@ impl PetGrid {
     // all parts then i could see it being posible to, say, place an eye where the mouth would normaly be, or
     // viceversa, we're thinking big customizability here but without making it a pain in the ass
     // to code/configure (us, players) y'know.
-    pub fn new(template: Vec<&str>, parts: Vec<PetPart>) -> PetGrid {
+    pub fn new(template: Vec<&str>, parts: Vec<PetPart>) -> PetCanvas {
         println!("[Pet Grid] Arranging pet parts...");
 
         // Draw/place the outline of the pet
@@ -72,7 +72,7 @@ impl PetGrid {
 
         println!("[Pet Grid] Pet parts successfully arranged!");
 
-        PetGrid {
+        PetCanvas {
             parts,
             initial_frame,
             death_frame,

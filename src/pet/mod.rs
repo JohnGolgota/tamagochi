@@ -1,9 +1,9 @@
-pub mod petgrid;
+pub mod petcanvas;
 
 use std::vec;
 
 use crate::utils::randnum;
-use petgrid::{PartType, PetGrid, PetPart};
+use petcanvas::{PartType, PetCanvas, PetPart};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PetStatus {
@@ -16,7 +16,7 @@ pub struct Pet {
     pub name: String,
     pub status: PetStatus,
     pub stats: Stats,
-    pub grid: PetGrid,
+    pub canvas: PetCanvas,
 }
 
 pub struct Stats {
@@ -58,13 +58,13 @@ impl Pet {
             character: ')',
             coords: (4, 10),
         };
-        let grid = PetGrid::new(template, vec![eye_1, eye_2, mouth, tail]);
+        let canvas = PetCanvas::new(template, vec![eye_1, eye_2, mouth, tail]);
 
         Pet {
             name,
             status: PetStatus::Alive,
             stats: Stats::new(),
-            grid,
+            canvas,
         }
     }
     pub fn check_status(&mut self) {

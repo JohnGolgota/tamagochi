@@ -3,7 +3,7 @@ pub mod pet;
 mod utils;
 
 use menu::Menu;
-use pet::{petgrid::CustomDisplay, Pet, PetStatus};
+use pet::{petcanvas::CustomDisplay, Pet, PetStatus};
 use rand::Rng;
 use std::io::{self, Write};
 use std::{sync::mpsc, thread, time};
@@ -13,7 +13,7 @@ fn main() {
     let mut mascota = Pet::new(String::from("Pedrito"));
 
     let menu: Menu = Menu::new();
-    let frames = mascota.grid.generate_frames();
+    let frames = mascota.canvas.generate_frames();
 
     const MILLIS: u64 = 600;
     let mut msg: &str = "meaw";
@@ -44,7 +44,7 @@ fn main() {
         );
         if mascota.status == PetStatus::Death {
             print!("RIP {} :(", mascota.name);
-            mascota.grid.death_frame.print();
+            mascota.canvas.death_frame.print();
             break;
         }
         print!("{}", menu.options);
