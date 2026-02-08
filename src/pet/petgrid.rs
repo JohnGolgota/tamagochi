@@ -1,8 +1,20 @@
-use std::fmt::{Debug, Formatter, Result};
+use crate::utils::randnum;
 
-pub struct PetPiece {
+#[derive(PartialEq)]
+pub enum PartType {
+    Eye,
+    Mouth,
+    Tail,
+}
+
+pub struct PetPart {
+    pub part_type: PartType,
     pub character: char,
     pub coords: (usize, usize), // (row, column)
+}
+
+pub trait CustomDisplay {
+    fn print(&self);
 }
 
 // TODO: Maybe rename this to PetCanvas? since this will handle both the "drawing" and "animation"
@@ -23,11 +35,9 @@ pub struct PetGrid {
     /// let myGrid = PetGrid::new(eyes_coords, mouth_coords, tail_coords);
     /// assert_eq!(myGrid, vec![[char::default()12]; 5];);
     /// ```
-    // template: Vec<Vec<char>>, // Template,
-    // eyes: Vec<PetPiece>,
-    // mouth: PetPiece,
-    // tails: Vec<PetPiece>,
-    pub vect: Vec<Vec<char>>,
+    parts: Vec<PetPart>,
+    pub initial_frame: Vec<Vec<char>>,
+    pub death_frame: Vec<Vec<char>>,
 }
 
 impl PetGrid {
@@ -40,50 +50,87 @@ impl PetGrid {
     // all parts then i could see it being posible to, say, place an eye where the mouth would normaly be, or
     // viceversa, we're thinking big customizability here but without making it a pain in the ass
     // to code/configure (us, players) y'know.
-    pub fn new(
-        template: Vec<Vec<char>>,
-        eyes: Vec<PetPiece>,
-        mouth: PetPiece,
-        tails: Vec<PetPiece>,
-    ) -> PetGrid {
+    pub fn new(template: Vec<&str>, parts: Vec<PetPart>) -> PetGrid {
         println!("[Pet Grid] Arranging pet parts...");
 
         // Draw/place the outline of the pet
-        let mut pet_vect = template.clone();
+        let mut initial_frame: Vec<Vec<char>> =
+            template.iter().map(|s| s.chars().collect()).collect();
+        let mut death_frame = initial_frame.clone();
 
-        // Draw/place the eye/s in the grid
-        for eye in &eyes {
-            pet_vect[eye.coords.0][eye.coords.1] = eye.character;
-        }
+        // Draw/place the parts of the pet (eye, mouth, tail, etc)
+        for part in &parts {
+            initial_frame[part.coords.0][part.coords.1] = part.character;
 
-        // Draw/place the mouth in the grid
-        pet_vect[mouth.coords.0][mouth.coords.1] = mouth.character;
-
-        // Draw/place the tail/s in the grid
-        for tail in &tails {
-            pet_vect[tail.coords.0][tail.coords.1] = tail.character;
+            // Generate frame for when the pet perishes based on the initial frame
+            if part.part_type == PartType::Eye {
+                death_frame[part.coords.0][part.coords.1] = 'X';
+            } else {
+                death_frame[part.coords.0][part.coords.1] = part.character;
+            }
         }
 
         println!("[Pet Grid] Pet parts successfully arranged!");
 
         PetGrid {
-            // template,
-            // eyes,
-            // mouth,
-            // tails,
-            vect: pet_vect,
+            parts,
+            initial_frame,
+            death_frame,
         }
+    }
+
+    pub fn generate_frames(&self) -> Vec<Vec<Vec<char>>> {
+        let eye_state_2 = '=';
+        let mouth_state_2 = 'w';
+        let tail_state_2 = '_';
+
+        let nframes = 5;
+        let mut frames: Vec<Vec<Vec<char>>> = Vec::new();
+
+        let mut current_frame = self.initial_frame.clone();
+        for _frame in 0..nframes {
+            frames.push(current_frame.clone());
+
+            // current_frame.print(); // use this for debugging frames
+            for part in &self.parts {
+                // Draw/place the parts of the pet for the next frame
+                match part.part_type {
+                    PartType::Eye => {
+                        if randnum() % 2 == 0 {
+                            current_frame[part.coords.0][part.coords.1] = eye_state_2;
+                        } else {
+                            current_frame[part.coords.0][part.coords.1] = part.character;
+                        }
+                    }
+                    PartType::Mouth => {
+                        if randnum() % 2 == 0 {
+                            current_frame[part.coords.0][part.coords.1] = mouth_state_2;
+                        } else {
+                            current_frame[part.coords.0][part.coords.1] = part.character;
+                        }
+                    }
+                    PartType::Tail => {
+                        if randnum() % 2 == 0 {
+                            current_frame[part.coords.0][part.coords.1] = tail_state_2;
+                        } else {
+                            current_frame[part.coords.0][part.coords.1] = part.character;
+                        }
+                    }
+                }
+            }
+        }
+        return frames;
     }
 }
 
-impl Debug for PetGrid {
-    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
-        for row in self.vect.as_slice() {
+impl CustomDisplay for Vec<Vec<char>> {
+    fn print(&self) {
+        print!("\n");
+        for row in self {
             for character in row {
-                write!(f, "{:1}", character)?;
+                print!("{}", character);
             }
-            writeln!(f)?;
+            print!("\n")
         }
-        Ok(())
     }
 }

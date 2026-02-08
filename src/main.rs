@@ -3,63 +3,18 @@ pub mod pet;
 mod utils;
 
 use menu::Menu;
-use pet::Pet;
-use pet::PetStatus;
+use pet::{petgrid::CustomDisplay, Pet, PetStatus};
 use rand::Rng;
 use std::io::{self, Write};
 use std::{sync::mpsc, thread, time};
 
 fn main() {
     let mut rng = rand::thread_rng();
-    let mut mascota = Pet::new(String::from("perro"));
+    let mut mascota = Pet::new(String::from("Pedrito"));
 
     let menu: Menu = Menu::new();
-    let frames = [
-        r#"
- /\_/\
-/ o o \
-\¨ ^ ¨/
- /   \   \
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ = = \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ o o \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ = = \
-\¨ w ¨/
- /   \   \
-/|_|_|\__/
-	"#,
-        r#"
- /\_/\
-/ o o \
-\¨ w ¨/
- /   \    _
-/|_|_|\__/
-	"#,
-    ];
-    let kato_muerto = r#"
- /\_/\
-/ x x \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-	"#;
+    let frames = mascota.grid.generate_frames();
 
-    print!("{:?}", mascota.grid);
     const MILLIS: u64 = 600;
     let mut msg: &str = "meaw";
 
@@ -88,11 +43,12 @@ fn main() {
             mascota.stats.dirtiness
         );
         if mascota.status == PetStatus::Death {
-            print!("{}\nRIP {} :(", kato_muerto, mascota.name);
+            print!("RIP {} :(", mascota.name);
+            mascota.grid.death_frame.print();
             break;
         }
         print!("{}", menu.options);
-        print!("{}", frame);
+        frame.print();
         let select = rx.recv().unwrap();
         match select.as_str() {
             "1" => mascota.feed(),

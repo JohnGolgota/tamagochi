@@ -1,7 +1,9 @@
-mod petgrid;
+pub mod petgrid;
+
+use std::vec;
 
 use crate::utils::randnum;
-use petgrid::{PetGrid, PetPiece};
+use petgrid::{PartType, PetGrid, PetPart};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum PetStatus {
@@ -29,33 +31,34 @@ impl Pet {
     pub fn new(name: String) -> Pet {
         // Fixed for now but would come from a config file or something of sorts
         let template = vec![
-            vec!['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
-            vec!['.', ' ', '/', '\\', '_', '/', '\\', '.', '.', '.', '.', '.'],
-            vec!['.', '/', ' ', ' ', ' ', ' ', ' ', '\\', '.', '.', '.', '.'],
-            vec!['.', '\\', '¨', ' ', ' ', ' ', '¨', '/', '.', '.', '.', '.'],
-            vec!['.', ' ', '/', ' ', ' ', ' ', '\\', '.', '.', '.', ' ', '.'],
-            vec!['.', '(', '|', '_', '|', '_', '|', ')', '_', '_', '/', '.'],
-            vec!['.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.', '.'],
+            r#"           "#,
+            r#" /\_/\     "#,
+            r#"/     \    "#,
+            r#"\¨   ¨/    "#,
+            r#" /   \     "#,
+            r#"(|_|_|)__/ "#,
         ];
-        let eyes: Vec<PetPiece> = vec![
-            PetPiece {
-                character: 'o',
-                coords: (2, 3),
-            },
-            PetPiece {
-                character: 'O',
-                coords: (2, 5),
-            },
-        ];
-        let mouth = PetPiece {
-            character: '^',
-            coords: (3, 4),
+        let eye_1 = PetPart {
+            part_type: PartType::Eye,
+            character: 'o',
+            coords: (2, 2),
         };
-        let tails: Vec<PetPiece> = vec![PetPiece {
-            character: '\\',
+        let eye_2 = PetPart {
+            part_type: PartType::Eye,
+            character: 'o',
+            coords: (2, 4),
+        };
+        let mouth = PetPart {
+            part_type: PartType::Mouth,
+            character: '^',
+            coords: (3, 3),
+        };
+        let tail = PetPart {
+            part_type: PartType::Tail,
+            character: ')',
             coords: (4, 10),
-        }];
-        let grid = PetGrid::new(template, eyes, mouth, tails);
+        };
+        let grid = PetGrid::new(template, vec![eye_1, eye_2, mouth, tail]);
 
         Pet {
             name,
