@@ -17,8 +17,6 @@ pub trait CustomDisplay {
     fn print(&self);
 }
 
-// TODO: Maybe rename this to PetCanvas? since this will handle both the "drawing" and "animation"
-// of the pets "canvas" seems more fitting
 pub struct PetCanvas {
     /// Creates a new "pet grid"—a 2-dimensional vector with characters at specific positions
     /// according to the provided parameters, that make it so that the printed vector
