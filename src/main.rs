@@ -1,73 +1,33 @@
 pub mod menu;
 pub mod pet;
-use pet::Pet;
+mod utils;
+
+use menu::Menu;
+use pet::{petcanvas::CustomDisplay, Pet, PetStatus};
 use rand::Rng;
 use std::io::{self, Write};
 use std::{sync::mpsc, thread, time};
 
-use crate::menu::Menu;
-use crate::pet::PetStatus;
-
 fn main() {
     let mut rng = rand::thread_rng();
-    let mut mascota = Pet::new(String::from("perro"));
+    let mut mascota = Pet::new(String::from("Pedrito"));
+
     let menu: Menu = Menu::new();
-    let frames = [
-        r#"
- /\_/\
-/ o o \
-\¨ ^ ¨/
- /   \   \
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ = = \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ o o \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-    "#,
-        r#"
- /\_/\
-/ = = \
-\¨ w ¨/
- /   \   \
-/|_|_|\__/
-	"#,
-        r#"
- /\_/\
-/ o o \
-\¨ w ¨/
- /   \    _
-/|_|_|\__/
-	"#,
-    ];
-    let kato_muerto = r#"
- /\_/\
-/ x x \
-\¨ ^ ¨/
- /   \    _
-/|_|_|\__/
-	"#;
+    let frames = mascota.canvas.generate_frames();
+
     const MILLIS: u64 = 600;
     let mut msg: &str = "meaw";
+
+    // TODO: Catching user input causes the program to pause, awaiting for input
+    // so this i think would need to be scratched till we figure how TUIs do it usually
     let (tx, rx) = mpsc::channel();
-    let input_handle = thread::spawn(move || {
-        loop {
-            let mut input = String::new();
-            io::stdout().flush().unwrap();
-            io::stdin().read_line(&mut input).unwrap();
-            tx.send(input.trim().to_string()).unwrap();
-            if input.trim() == "exit" {
-                break;
-            }
+    let input_handle = thread::spawn(move || loop {
+        let mut input = String::new();
+        io::stdout().flush().unwrap();
+        io::stdin().read_line(&mut input).unwrap();
+        tx.send(input.trim().to_string()).unwrap();
+        if input.trim() == "exit" {
+            break;
         }
     });
     for frame in frames.iter().cycle() {
@@ -75,14 +35,20 @@ fn main() {
         let number: u8 = rng.gen_range(0..=10);
         println!(
             "Salud: {}, Hambre: {}, Higiene: {}, Aburrimiento: {}, Cansancio: {}, Suciedad: {}",
-            mascota.stats.health, mascota.stats.hunger, mascota.stats.dirtiness, mascota.stats.boredom, mascota.stats.tiredness, mascota.stats.dirtiness
+            mascota.stats.health,
+            mascota.stats.hunger,
+            mascota.stats.dirtiness,
+            mascota.stats.boredom,
+            mascota.stats.tiredness,
+            mascota.stats.dirtiness
         );
         if mascota.status == PetStatus::Death {
-            print!("{}\nRIP {} :(", kato_muerto, mascota.name);
+            print!("RIP {} :(", mascota.name);
+            mascota.canvas.death_frame.print();
             break;
         }
         print!("{}", menu.options);
-        print!("{}", frame);
+        frame.print();
         let select = rx.recv().unwrap();
         match select.as_str() {
             "1" => mascota.feed(),
@@ -90,7 +56,7 @@ fn main() {
             "3" => mascota.sleep(),
             "4" => mascota.wash(),
             "5" => break,
-            _ =>  println!("{}", msg),
+            _ => println!("{}", msg),
         }
         if number % 2u8 == 0 {
             msg = "..";
@@ -100,7 +66,7 @@ fn main() {
         thread::sleep(time::Duration::from_millis(MILLIS));
         mascota.live();
     }
-	input_handle.join().unwrap();
+    input_handle.join().unwrap();
 }
 
 fn clear_terminal() {

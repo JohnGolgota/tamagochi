@@ -1,4 +1,10 @@
-use rand::prelude::*;
+pub mod petcanvas;
+
+use std::vec;
+
+use crate::utils::randnum;
+use petcanvas::{PartType, PetCanvas, PetPart};
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum PetStatus {
     Alive,
@@ -10,15 +16,55 @@ pub struct Pet {
     pub name: String,
     pub status: PetStatus,
     pub stats: Stats,
-    // pub happy: u8
+    pub canvas: PetCanvas,
+}
+
+pub struct Stats {
+    pub health: u8,
+    pub hunger: u8,
+    pub boredom: u8,
+    pub tiredness: u8,
+    pub dirtiness: u8,
 }
 
 impl Pet {
     pub fn new(name: String) -> Pet {
+        // Fixed for now but would come from a config file or something of sorts
+        let template = vec![
+            r#"           "#,
+            r#" /\_/\     "#,
+            r#"/     \    "#,
+            r#"\¨   ¨/    "#,
+            r#" /   \     "#,
+            r#"(|_|_|)__/ "#,
+        ];
+        let eye_1 = PetPart {
+            part_type: PartType::Eye,
+            character: 'o',
+            coords: (2, 2),
+        };
+        let eye_2 = PetPart {
+            part_type: PartType::Eye,
+            character: 'o',
+            coords: (2, 4),
+        };
+        let mouth = PetPart {
+            part_type: PartType::Mouth,
+            character: '^',
+            coords: (3, 3),
+        };
+        let tail = PetPart {
+            part_type: PartType::Tail,
+            character: ')',
+            coords: (4, 10),
+        };
+        let canvas = PetCanvas::new(template, vec![eye_1, eye_2, mouth, tail]);
+
         Pet {
             name,
             status: PetStatus::Alive,
             stats: Stats::new(),
+            canvas,
         }
     }
     pub fn check_status(&mut self) {
@@ -46,16 +92,8 @@ impl Pet {
     }
     pub fn wash(&mut self) {
         self.stats.wash();
-		println!("{} se ha lavado", self.name)
+        println!("{} se ha lavado", self.name)
     }
-}
-
-pub struct Stats {
-    pub health: u8,
-    pub hunger: u8,
-    pub boredom: u8,
-    pub tiredness: u8,
-    pub dirtiness: u8,
 }
 
 impl Stats {
@@ -129,11 +167,6 @@ impl Stats {
     fn is_dead(&self) -> bool {
         self.hunger >= 100 || self.boredom >= 100 || self.tiredness >= 100 || self.dirtiness >= 100
     }
-}
-
-fn randnum() -> u8 {
-    let rand_number: u8 = rand::thread_rng().gen_range(1..=10);
-    rand_number
 }
 
 #[cfg(test)]
