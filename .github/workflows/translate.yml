@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2  # Fetch last 2 commits
 
       - name: Run Translation Action
         uses: imaun/gpt-translate-action@v1.9.0
