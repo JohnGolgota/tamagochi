@@ -17,7 +17,7 @@ jobs:
         uses: imaun/gpt-translate-action@v1.9.0
         with:
           api_key: ${{ secrets.API_KEY }}
-          ai_service: "openai"  # Options: openai, gemini, claude, azure
+          ai_service: "gemini"  # Options: openai, gemini, claude, azure
           ai_model: "gpt-4"      # Specify model (e.g., gemini-pro, claude-v1)
           target_lang: "Spanish"
           target_lang_code: "es"
