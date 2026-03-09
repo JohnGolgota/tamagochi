@@ -57,7 +57,8 @@ There are multiple included pets for you to choose:
 </table>
 
 You can also create your own pet!:
-WIP
+
+THIS SECTION IS WIP
 
 ## Here's all the things you can do with your Mojichi
 - :poultry_leg:    Feed it a wide variety of foods
