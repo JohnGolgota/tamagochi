@@ -23,4 +23,3 @@ jobs:
           target_lang_code: "es"
           file_exts: "md"
           output_format: "translated_*.{ext}"
-          base_branch: main # Default is GITHUB_BASE_REF from env
