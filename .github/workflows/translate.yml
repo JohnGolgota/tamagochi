@@ -21,6 +21,6 @@ jobs:
           ai_model: "gemini-3-flash-preview"      # Specify model (e.g., gemini-pro, claude-v1)
           target_lang: "Spanish"
           target_lang_code: "es"
-          file_extensions: "md"
+          file_exts: "md"
           output_format: "translated_*.{ext}"
           base_branch: main # Default is GITHUB_BASE_REF from env
