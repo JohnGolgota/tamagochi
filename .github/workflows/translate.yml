@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 2  # Fetch last 2 commits
 
       - name: Run Translation Action
-        uses: Kolozuz/llm-translate-action@main
+        uses: Kolozuz/llm-translate-action@master
         with:
           api_key: ${{ secrets.API_KEY }}
           ai_service: "gemini"  # Options: openai, gemini, claude, azure
