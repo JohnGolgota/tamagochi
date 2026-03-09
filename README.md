@@ -26,11 +26,11 @@
 </p>
 
 <p align="center">
-  <a href="/docs/readme_fr.md">Français</a>
+  <a href="/docs/README_fr.md">Français</a>
   ·
-  <a href="/docs/readme_ja.md">简体中文</a>
+  <a href="/docs/README_ja.md">日本語</a>
   ·
-  <a href="/docs/readme_es.md">Español</a>
+  <a href="/docs/README_es.md">Español</a>
 </p>
 
 Mojichi, which comes from combination of the words 文字 (Moji) which means "Character" and 友達 (Tomodachi) "Friend", is a virtual compannion pet, with lots of customization and interaction features.
@@ -44,7 +44,7 @@ There are multiple included pets for you to choose:
             <strong>Pedrito</strong>
             <br>
             the goofiest cat around
-        </td>  
+        </td>
     </tr>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
@@ -52,7 +52,7 @@ There are multiple included pets for you to choose:
             <strong>Pedrito's deformed cousin</strong>
             <br>
             was born close to a nuclear plant was abbandoned so he has no name and everyone knows him as pedrito's cousin
-        </td>  
+        </td>
     </tr>
 </table>
 
