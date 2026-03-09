@@ -1,10 +1,10 @@
 <div align="center">
-    <h2>Kigoutchi</h2>
+    <h2>Mojichi</h2>
     <img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/af16d452-b48c-4b89-bc19-2090cc00f69b" alt="repository's banner" width="350px" height="150px">
 </div>
 
 <div align="center">
-    <h2>Tu mascota virtual desarrollada en Rust</h2>
+    <h2>Votre animal de compagnie virtuel développé en Rust</h2>
 </div>
 
 <p align="center">
@@ -15,10 +15,7 @@
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JohnGolgota/tamagochi" />
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi">
-      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/workflows/Build/badge.svg?branchName=main">
-    </a>
-    <a href="https://github.com/JohnGolgota/tamagochi/actions">
-      <img alt="Tests Passing" src="https://github.com/JohnGolgota/tamagochi/workflows/Test/badge.svg?" />
+      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/actions/workflows/build_and_test.yml/badge.svg">
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi/issues">
       <img alt="Issues" src="https://img.shields.io/github/issues/JohnGolgota/tamagochi?color=0088ff" />
@@ -29,40 +26,42 @@
 </p>
 
 <p align="center">
-  <a href="/docs/readme_fr.md">Français</a>
+  <a href="/docs/README_fr.md">Français</a>
   ·
-  <a href="/docs/readme_ja.md">简体中文</a>
+  <a href="/docs/README_ja.md">日本語</a>
   ·
-  <a href="/docs/readme_es.md">Español</a>
+  <a href="/docs/README_es.md">Español</a>
 </p>
 
-Kigoutchi, abreviatura de 記号 Kigou 友達 Tomodachi ("Amigo Símbolo") es una mascota de compañía virtual, con muchas funciones de personalización e interacción.
+Mojichi, qui vient de la combinaison des mots 文字 (Moji) qui signifie « Caractère » et 友達 (Tomodachi) « Ami », est un compagnon virtuel avec de nombreuses fonctionnalités de personnalisation et d'interaction.
 
-## Variantes de Kigoutchi
-Kigoutchi tiene muchas opciones de mascotas para que elijas, que incluyen:
+## Variantes
+Il existe plusieurs animaux inclus parmi lesquels vous pouvez choisir :
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
-            - Pedrito
+            <strong>Pedrito</strong>
             <br>
-            El gato más silly que hay
-        </td>  
+            le chat le plus loufoque du coin
+        </td>
     </tr>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
         <td>
-            - El primo deforme de Pedrito
+            <strong>Le cousin déformé de Pedrito</strong>
             <br>
-            Nació cerca de una planta nuclear, fue abandonado, por lo que no tiene nombre y todos lo conocen como el primo de Pedrito
-        </td>  
+            est né près d'une centrale nucléaire et a été abandonné, il n'a donc pas de nom et tout le monde le connaît comme le cousin de Pedrito
+        </td>
     </tr>
 </table>
 
-## Estas son todas las cosas que puedes hacer con tu Kigoutchi
-- :poultry_leg:    Aliméntarlo con una amplia variedad de comidas
-- :raised_hand:    Acaríciarlo con tu.. mano virtual..
-- :soap:    Límpiarlo para que no este todo desagradable y apestoso, ya sabes
-- :skull:    Mátarlo de varias maneras
+Vous pouvez également créer votre propre animal ! :
 
+CETTE SECTION EST EN COURS (WIP)
 
+## Voici tout ce que vous pouvez faire avec votre Mojichi
+- :poultry_leg:    Le nourrir avec une grande variété d'aliments
+- :raised_hand:    Le caresser avec votre.. main virtuelle..
+- :soap:    Le nettoyer pour qu'il ne soit pas tout sale et puant, vous voyez
+- :skull:    Le tuer de différentes manières
