@@ -24,4 +24,4 @@ jobs:
           target_lang: "Spanish"
           target_lang_code: "es"
           file_exts: "md"
-          output_format: "translated_*.{ext}"
+          output_format: "docs/*_{lang}.{ext}"
