@@ -1,5 +1,5 @@
 <div align="center">
-    <h2>Kigoutchi</h2>
+    <h2>Mojichi</h2>
     <img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/af16d452-b48c-4b89-bc19-2090cc00f69b" alt="repository's banner" width="350px" height="150px">
 </div>
 
@@ -15,10 +15,7 @@
       <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/JohnGolgota/tamagochi" />
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi">
-      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/workflows/Build/badge.svg?branchName=main">
-    </a>
-    <a href="https://github.com/JohnGolgota/tamagochi/actions">
-      <img alt="Tests Passing" src="https://github.com/JohnGolgota/tamagochi/workflows/Test/badge.svg?" />
+      <img alt="Build Status" src="https://github.com/JohnGolgota/tamagochi/actions/workflows/build_and_test.yml/badge.svg">
     </a>
     <a href="https://github.com/JohnGolgota/tamagochi/issues">
       <img alt="Issues" src="https://img.shields.io/github/issues/JohnGolgota/tamagochi?color=0088ff" />
@@ -36,10 +33,10 @@
   <a href="/docs/readme_es.md">Español</a>
 </p>
 
-Kigoutchi, short for 記号 Kigou 友達 Tomodachi ("Symbol Friend" lmao) is a virtual compannion pet, with lots of customization and interaction features. バカ
+Mojichi, which comes from combination of the words 文字 (Moji) which means "Character" and 友達 (Tomodachi) "Friend", is a virtual compannion pet, with lots of customization and interaction features.
 
-## Kigoutchi variants
-Kigoutchi has many pet options for you to choose, including:
+## Variants
+There are multiple included pets for you to choose:
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
@@ -59,7 +56,10 @@ Kigoutchi has many pet options for you to choose, including:
     </tr>
 </table>
 
-## Here's all the things you can do with your Kigoutchi
+You can also create your own pet!:
+WIP
+
+## Here's all the things you can do with your Mojichi
 - :poultry_leg:    Feed it a wide variety of foods
 - :raised_hand:    Pet it with your.. virtual hand..
 - :soap:    Clean it so that it's not all nasty and stinky yknow
