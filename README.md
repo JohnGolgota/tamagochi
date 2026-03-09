@@ -41,7 +41,7 @@ There are multiple included pets for you to choose:
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
-            - Pedrito
+            <strong>Pedrito</strong>
             <br>
             the goofiest cat around
         </td>  
@@ -49,7 +49,7 @@ There are multiple included pets for you to choose:
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
         <td>
-            - Pedrito's deformed cousin
+            <strong>Pedrito's deformed cousin</strong>
             <br>
             was born close to a nuclear plant was abbandoned so he has no name and everyone knows him as pedrito's cousin
         </td>  
