@@ -36,7 +36,7 @@
 Mojichi, which comes from combination of the words 文字 (Moji) which means "Character" and 友達 (Tomodachi) "Friend", is a virtual compannion pet, with lots of customization and interaction features.
 
 ## Variants
-There are multiple included pets for you to choose:
+There are multiple default pets for you to choose:
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
