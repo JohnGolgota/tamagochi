@@ -1,10 +1,10 @@
 <div align="center">
-    <h2>Mojichi (文字ち)</h2>
+    <h2>Mojichi</h2>
     <img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/af16d452-b48c-4b89-bc19-2090cc00f69b" alt="repository's banner" width="350px" height="150px">
 </div>
 
 <div align="center">
-    <h2>Rustで開発されたあなたの仮想ペット</h2>
+    <h2>Rustで開発されたバーチャルペット</h2>
 </div>
 
 <p align="center">
@@ -33,35 +33,35 @@
   <a href="/docs/README_es.md">Español</a>
 </p>
 
-Mojichi（文字ち）は、「文字」(Moji) と 「友達」(Tomodachi) を組み合わせた名前の仮想ペットです。豊富なカスタマイズ機能とインタラクション機能を備えています。
+Mojichiは、「文字（Moji）」と「友達（Tomodachi）」という言葉を組み合わせた名前で、豊富なカスタマイズ機能とインタラクション機能を備えたバーチャルコンパニオンペットです。
 
-## バリエーション
-選べるペットがいくつか用意されています：
+## Variants
+デフォルトのペットをいくつか選択できます：
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
             <strong>Pedrito</strong>
             <br>
-            このあたりで一番おどけた猫
+            最高にお間抜けな猫
         </td>
     </tr>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/930f015b-16fc-462b-b950-fe7785255153">
         <td>
-            <strong>Pedritoの不気味な従兄弟</strong>
+            <strong>Pedrito's deformed cousin</strong>
             <br>
-            原発の近くで生まれ、捨てられたため名前がありません。みんなからは「Pedritoの従兄弟」として知られています。
+            原子力発電所の近くで生まれ、捨てられたため名前はありません。みんなからはPedritoのいとことして知られています。
         </td>
     </tr>
 </table>
 
-自分だけのペットを作ることもできます！：
+自分だけのペットを作成することも可能です！：
 
-このセクションは現在作成中 (WIP) です。
+このセクションは現在WIPです
 
 ## Mojichiでできること
 - :poultry_leg:    多種多様な食べ物を与える
-- :raised_hand:    あなたの…バーチャルな手で…撫でてあげる
-- :soap:    不潔で臭くならないように、きれいに掃除してあげる
-- :skull:    様々な方法で殺す
+- :raised_hand:    バーチャルな手でなでる
+- :soap:    掃除をして清潔にする（汚れたままだと臭くなるので注意）
+- :skull:    様々な方法で倒す（Kill）

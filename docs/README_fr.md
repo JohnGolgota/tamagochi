@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <h2>Votre animal de compagnie virtuel développé en Rust</h2>
+    <h2>Votre animal virtuel développé en Rust</h2>
 </div>
 
 <p align="center">
@@ -33,17 +33,17 @@
   <a href="/docs/README_es.md">Español</a>
 </p>
 
-Mojichi, qui vient de la combinaison des mots 文字 (Moji) qui signifie « Caractère » et 友達 (Tomodachi) « Ami », est un compagnon virtuel avec de nombreuses fonctionnalités de personnalisation et d'interaction.
+Mojichi, qui provient de la combinaison des mots 文字 (Moji) qui signifie "Caractère" et 友達 (Tomodachi) "Ami", est un animal de compagnie virtuel, avec de nombreuses fonctionnalités de personnalisation et d'interaction.
 
 ## Variantes
-Il existe plusieurs animaux inclus parmi lesquels vous pouvez choisir :
+Il existe plusieurs animaux par défaut parmi lesquels vous pouvez choisir :
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
             <strong>Pedrito</strong>
             <br>
-            le chat le plus loufoque du coin
+            le chat le plus rigolo du coin
         </td>
     </tr>
     <tr>
@@ -51,17 +51,17 @@ Il existe plusieurs animaux inclus parmi lesquels vous pouvez choisir :
         <td>
             <strong>Le cousin déformé de Pedrito</strong>
             <br>
-            est né près d'une centrale nucléaire et a été abandonné, il n'a donc pas de nom et tout le monde le connaît comme le cousin de Pedrito
+            né près d'une centrale nucléaire et abandonné, il n'a donc pas de nom et tout le monde le connaît comme le cousin de Pedrito
         </td>
     </tr>
 </table>
 
 Vous pouvez également créer votre propre animal ! :
 
-CETTE SECTION EST EN COURS (WIP)
+CETTE SECTION EST ACTUELLEMENT EN COURS DE DÉVELOPPEMENT (WIP)
 
 ## Voici tout ce que vous pouvez faire avec votre Mojichi
 - :poultry_leg:    Le nourrir avec une grande variété d'aliments
 - :raised_hand:    Le caresser avec votre.. main virtuelle..
-- :soap:    Le nettoyer pour qu'il ne soit pas tout sale et puant, vous voyez
+- :soap:    Le nettoyer pour qu'il ne soit pas tout sale et malodorant, vous voyez
 - :skull:    Le tuer de différentes manières

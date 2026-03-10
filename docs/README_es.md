@@ -33,17 +33,17 @@
   <a href="/docs/README_es.md">Español</a>
 </p>
 
-Mojichi, que proviene de la combinación de las palabras 文字 (Moji) que significa "Carácter" y 友達 (Tomodachi) "Amigo", es una mascota virtual, con muchas características de personalización e interacción.
+Mojichi, que proviene de la combinación de las palabras 文字 (Moji) que significa "Carácter" y 友達 (Tomodachi) "Amigo", es una mascota compañera virtual, con muchas características de personalización e interacción.
 
 ## Variantes
-Hay varias mascotas incluidas para que elijas:
+Hay múltiples mascotas predeterminadas para que elijas:
 <table>
     <tr>
         <td><img src="https://github.com/JohnGolgota/tamagochi/assets/110570465/f04bb93b-dcfa-4696-a9c1-d0ad389c08a6">
         <td>
             <strong>Pedrito</strong>
             <br>
-            el gato más bobo de todos
+            el gato más tonto que existe
         </td>
     </tr>
     <tr>
@@ -51,17 +51,17 @@ Hay varias mascotas incluidas para que elijas:
         <td>
             <strong>El primo deforme de Pedrito</strong>
             <br>
-            nació cerca de una planta nuclear y fue abandonado, por lo que no tiene nombre y todos lo conocen como el primo de Pedrito
+            nació cerca de una planta nuclear y fue abandonado, así que no tiene nombre y todos lo conocen como el primo de Pedrito
         </td>
     </tr>
 </table>
 
 ¡También puedes crear tu propia mascota!:
 
-ESTA SECCIÓN ESTÁ EN WIP (PROGRESO)
+ESTA SECCIÓN ESTÁ ACTUALMENTE EN WIP
 
-## Aquí tienes todo lo que puedes hacer con tu Mojichi
-- :poultry_leg:    Aliméntalo con una amplia variedad de alimentos
-- :raised_hand:    Acarícialo con tu.. mano virtual..
+## Aquí tienes todas las cosas que puedes hacer con tu Mojichi
+- :poultry_leg:    Aliméntalo con una gran variedad de comida
+- :raised_hand:    Acarícialo con tu... mano virtual...
 - :soap:    Límpialo para que no esté todo sucio y apestoso, ya sabes
-- :skull:    Mátalo de varias maneras
+- :skull:    Mátalo de varias formas
