@@ -5,7 +5,7 @@ default_install_hook_types:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
     hooks:
       - id: check-merge-conflict
         stages: &precomm-stages [pre-commit, manual]
@@ -17,7 +17,7 @@ repos:
         stages: *precomm-stages
 
   - repo: https://github.com/FeryET/pre-commit-rust
-    rev: v1.2.1
+    rev: 2b764ff13b37a64a57232a99363e6438e8877c5c  # frozen: v1.2.1
     hooks:
       - id: fmt
       - id: cargo-check
@@ -25,7 +25,7 @@ repos:
       - id: build
 
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.4.0
+    rev: 91ab4bf57e58b32adf1a122681f6ebe164d081c8  # frozen: v4.4.0
     hooks:
       - id: conventional-pre-commit
         args: [--strict]
